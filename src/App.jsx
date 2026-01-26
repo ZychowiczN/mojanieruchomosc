@@ -1,6 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Menu, X, Phone, Mail, MapPin, Home, Key, TrendingUp, Heart, Shield, Users, CheckCircle, Facebook, Instagram, ChevronRight, ArrowRight, Sparkles, MessageSquare, PenTool, Send, Loader2, Bot, Building2, Youtube } from 'lucide-react';
 
+// --- ŚCIEŻKI DO ZDJĘĆ ---
+// Zdjęcia muszą znajdować się w folderze "public" na GitHubie
+const logo = "/white_icon_color1_background.png";
+const profileImg = "/image00001.jpeg";
+const heroBg = "/image00019.jpeg";
+const serviceSaleImg = "/image00011.jpeg";
+const serviceBuyImg = "/image00012.jpeg";
+const catFlatImg = "/image00007.jpeg";
+const catHouseImg = "/image00018.jpeg";
+const catPlotImg = "/image00011.jpeg"; // Użyte ponownie jako placeholder
+const catOtherImg = "/image00019.jpeg"; // Użyte ponownie jako placeholder
+
 const Website = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeService, setActiveService] = useState('sell'); // 'sell' or 'buy'
@@ -38,7 +50,7 @@ const Website = () => {
 
   // --- GEMINI API INTEGRATION ---
   const callGeminiAPI = async (prompt, systemInstruction = "") => {
-    const apiKey = ""; // TUTAJ WKLEJ SWÓJ KLUCZ API, JEŚLI CHCESZ AI
+    const apiKey = ""; // TUTAJ WKLEJ SWÓJ KLUCZ API
     try {
       const response = await fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`,
@@ -333,7 +345,7 @@ const Website = () => {
             <div className="flex-shrink-0 flex items-center cursor-pointer group" onClick={() => scrollToSection('home')}>
               {/* Logo */}
               <img 
-                src="white_icon_color1_background.png" 
+                src={logo} 
                 alt="Logo" 
                 className="h-14 w-auto mr-4 object-contain rounded-full shadow-sm ring-1 ring-gray-100 group-hover:scale-105 transition-transform duration-300" 
               />
@@ -408,7 +420,10 @@ const Website = () => {
         <div className="absolute inset-0 bg-black/20 z-10"></div>
         
         {/* Background Image with Parallax-like fix */}
-        <div className="absolute inset-0 bg-[url('image00019.jpeg')] bg-cover bg-center bg-no-repeat fixed-bg transform scale-105"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat fixed-bg transform scale-105"
+          style={{ backgroundImage: `url(${heroBg})` }}
+        ></div>
         
         <div className="relative z-20 text-center px-4 max-w-5xl mx-auto mt-20 animate-in fade-in zoom-in duration-1000">
           <h1 className="text-5xl md:text-7xl font-serif text-white mb-8 leading-tight drop-shadow-2xl tracking-tight">
@@ -451,7 +466,7 @@ const Website = () => {
                 <div className="absolute inset-0 bg-[#175579] rounded-[3rem] rotate-3 opacity-10 transition-transform group-hover:rotate-6 duration-500"></div>
                 <div className="relative rounded-[3rem] overflow-hidden shadow-2xl aspect-[3/4] bg-slate-100">
                   <div className="absolute inset-0 bg-gradient-to-t from-[#175579]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10"></div>
-                  <img src="image00001.jpeg" alt="Paulina Zychowicz" className="w-full h-full object-cover transition duration-700 group-hover:scale-105" />
+                  <img src={profileImg} alt="Paulina Zychowicz" className="w-full h-full object-cover transition duration-700 group-hover:scale-105" />
                 </div>
                 
                 {/* Floating Experience Card */}
@@ -573,7 +588,7 @@ const Website = () => {
                 {/* Zdjęcie Usługi */}
                 <div className="bg-slate-100 min-h-[400px] md:min-h-full relative overflow-hidden group">
                     <div className="absolute inset-0 bg-[#175579]/20 group-hover:bg-transparent transition-colors duration-700 z-10"></div>
-                    <img src="image00011.jpeg" alt="Sprzedaż nieruchomości" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000" />
+                    <img src={serviceSaleImg} alt="Sprzedaż nieruchomości" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000" />
                 </div>
               </div>
             )}
@@ -605,7 +620,7 @@ const Website = () => {
                 {/* Zdjęcie Usługi */}
                 <div className="bg-slate-100 min-h-[400px] md:min-h-full relative overflow-hidden group">
                     <div className="absolute inset-0 bg-[#175579]/20 group-hover:bg-transparent transition-colors duration-700 z-10"></div>
-                    <img src="image00012.jpeg" alt="Zakup nieruchomości" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000" />
+                    <img src={serviceBuyImg} alt="Zakup nieruchomości" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000" />
                 </div>
               </div>
             )}
@@ -626,10 +641,10 @@ const Website = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { title: "Mieszkania", icon: <Home size={32} />, image: "image00007.jpeg" },
-              { title: "Domy", icon: <Shield size={32} />, image: "image00018.jpeg" },
-              { title: "Działki", icon: <MapPin size={32} />, image: "image00011.jpeg" }, 
-              { title: "Inne", icon: <TrendingUp size={32} />, image: "image00019.jpeg" } 
+              { title: "Mieszkania", icon: <Home size={32} />, image: catFlatImg },
+              { title: "Domy", icon: <Shield size={32} />, image: catHouseImg },
+              { title: "Działki", icon: <MapPin size={32} />, image: catPlotImg }, 
+              { title: "Inne", icon: <TrendingUp size={32} />, image: catOtherImg } 
             ].map((cat, idx) => (
               <div key={idx} className="group relative h-[450px] rounded-[2rem] overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-700">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0f2d40]/50 to-[#0f2d40] z-10 opacity-70 group-hover:opacity-90 transition duration-500"></div>
@@ -654,7 +669,10 @@ const Website = () => {
       {/* Why Us */}
       <section className="py-32 bg-slate-900 text-white relative overflow-hidden">
         {/* Background Image Parallax */}
-        <div className="absolute inset-0 bg-[url('image00019.jpeg')] bg-cover bg-center opacity-10 fixed-bg mix-blend-overlay"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-10 fixed-bg mix-blend-overlay"
+          style={{ backgroundImage: `url(${heroBg})` }}
+        ></div>
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-transparent to-slate-900"></div>
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
@@ -825,7 +843,7 @@ const Website = () => {
             <div className="flex flex-col md:flex-row justify-between items-center gap-10 mb-16">
                 <div className="flex items-center gap-5 group cursor-default">
                      {/* Footer Logo */}
-                    <img src="white_icon_color1_background.png" alt="Logo" className="h-16 w-auto opacity-90 rounded-full shadow-sm grayscale group-hover:grayscale-0 transition-all duration-500" />
+                    <img src={logo} alt="Logo" className="h-16 w-auto opacity-90 rounded-full shadow-sm grayscale group-hover:grayscale-0 transition-all duration-500" />
                     
                     <div className="text-2xl font-serif text-slate-900 tracking-tight">
                         Zychowicz <span className="text-[#175579]">Nieruchomości</span>
