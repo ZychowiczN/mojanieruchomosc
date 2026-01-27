@@ -1,15 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Menu, X, Phone, Mail, MapPin, Home, Key, TrendingUp, Heart, Shield, Users, CheckCircle, Facebook, Instagram, ChevronRight, ArrowRight, Sparkles, MessageSquare, PenTool, Send, Loader2, Bot, Building2, Youtube } from 'lucide-react';
 
-// --- IMPORT ZDJĘĆ (POŁĄCZENIE PLIKÓW) ---
-// Te linie mówią stronie, gdzie szukać zdjęć w Twoim magazynie GitHub
-import logo from '../white_icon_color1_background.png';
-import profileImg from '../image00001.jpeg';
-import heroBg from '../image00019.jpeg';
-import serviceSaleImg from '../image00011.jpeg';
-import serviceBuyImg from '../image00012.jpeg';
-import catFlatImg from '../image00007.jpeg';
-import catHouseImg from '../image00018.jpeg';
+// --- IMPORT ZDJĘĆ (METODA NA SĄSIADA) ---
+// Zdjęcia muszą być w tym samym folderze co ten plik (czyli w folderze "src")
+import logo from './white_icon_color1_background.png';
+import profileImg from './image00001.jpeg';
+import heroBg from './image00019.jpeg';
+import serviceSaleImg from './image00011.jpeg';
+import serviceBuyImg from './image00012.jpeg';
+import catFlatImg from './image00007.jpeg';
+import catHouseImg from './image00018.jpeg';
 // Używamy tych samych zdjęć do pozostałych kategorii jako wypełniacze
 const catPlotImg = serviceSaleImg;
 const catOtherImg = heroBg;
