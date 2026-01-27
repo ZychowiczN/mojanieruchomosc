@@ -1,17 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Menu, X, Phone, Mail, MapPin, Home, Key, TrendingUp, Heart, Shield, Users, CheckCircle, Facebook, Instagram, ChevronRight, ArrowRight, Sparkles, MessageSquare, PenTool, Send, Loader2, Bot, Building2, Youtube } from 'lucide-react';
 
-// --- ŚCIEŻKI DO ZDJĘĆ ---
-// Zdjęcia muszą znajdować się w folderze "public" na GitHubie
-const logo = "/white_icon_color1_background.png";
-const profileImg = "/image00001.jpeg";
-const heroBg = "/image00019.jpeg";
-const serviceSaleImg = "/image00011.jpeg";
-const serviceBuyImg = "/image00012.jpeg";
-const catFlatImg = "/image00007.jpeg";
-const catHouseImg = "/image00018.jpeg";
-const catPlotImg = "/image00011.jpeg"; // Użyte ponownie jako placeholder
-const catOtherImg = "/image00019.jpeg"; // Użyte ponownie jako placeholder
+// --- IMPORT ZDJĘĆ (METODA NA SĄSIADA) ---
+// Zdjęcia muszą być w tym samym folderze co ten plik (czyli w folderze "src")
+import logo from './white_icon_color1_background.png';
+import profileImg from './image00001.jpeg';
+import heroBg from './image00019.jpeg';
+import serviceSaleImg from './image00011.jpeg';
+import serviceBuyImg from './image00012.jpeg';
+import catFlatImg from './image00007.jpeg';
+import catHouseImg from './image00018.jpeg';
+// Używamy tych samych zdjęć do pozostałych kategorii jako wypełniacze
+const catPlotImg = serviceSaleImg;
+const catOtherImg = heroBg;
 
 const Website = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
