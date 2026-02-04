@@ -1,3 +1,31 @@
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)
+
+
+Plik 7: src/index.css
+
+Nazwij plik: src/index.css
+Treść do wklejenia:
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+Plik 8: src/App.jsx (Najważniejszy!)
+
+Nazwij plik: src/App.jsx
+Treść do wklejenia: (Skopiuj wszystko z ramki poniżej).
+Ważne: Pamiętaj o wklejeniu klucza API w linijce 53, jeśli chcesz korzystać z funkcji AI.
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Menu, X, Phone, Mail, MapPin, Home, Key, TrendingUp, Heart, Shield, Users, CheckCircle, Facebook, Instagram, ChevronRight, ArrowRight, Sparkles, MessageSquare, PenTool, Send, Loader2, Bot, Building2, Youtube } from 'lucide-react';
 
